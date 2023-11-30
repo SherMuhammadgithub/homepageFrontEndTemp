@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Gallery</title>
+  <!-- Add your Tailwind CSS link here -->
+  <link href="styles.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body class="bg-gray-100">
+
+<div class="container mx-auto py-8">
+  <div id="imageGallery" class="grid grid-cols-3 gap-4">
+    <div class="image-card">
+      <img src="image-a.jpg" alt="sher" class="w-full">
+      <p class="image-name mt-2">Sher</p>
+      <p class="image-price text-gray-600">$100</p>
+    </div>
+    <div class="image-card">
+        <img src="image-a.jpg" alt="Ahmad" class="w-full">
+        <p class="image-name mt-2">Ahmad</p>
+        <p class="image-price text-gray-600">$30</p>
+      </div>
+      <div class="image-card">
+        <img src="image-a.jpg" alt="Bilal" class="w-full">
+        <p class="image-name mt-2">Bilal</p>
+        <p class="image-price text-gray-600">$40</p>
+      </div>
+    <!-- Add more image cards here with your actual data -->
+  </div>
+
+  <div class="flex justify-center mt-4 space-x-10">
+    <button id="sortAZ" class="btn">Z to A</button>
+    <button id="sortZA" class="btn">A to Z</button>
+    <button id="sortLowToHigh" class="btn">Price: Low to High</button>
+    <button id="sortHighToLow" class="btn">Price: High to Low</button>
+    <button id="sortBestSelling" class="btn">Best Selling</button>
+    <button id="sortFeatured" class="btn">Featured</button>
+  </div>
+</div>
+
+<script>
+  // Function to extract image data from the gallery
+  function extractImageData() {
+    const gallery = document.getElementById('imageGallery');
+    const imageElements = gallery.querySelectorAll('.image-card');
+
+    const imageData = Array.from(imageElements).map(imageElement => {
+      const name = imageElement.querySelector('.image-name').textContent;
+      const price = parseFloat(imageElement.querySelector('.image-price').textContent.slice(1)); // Remove the "$" symbol
+      const src = imageElement.querySelector('img').getAttribute('src');
+      return { name, price, src };
+    });
+
+    return imageData;
+  }
+
+  // Function to render the sorted images
+  function renderImages(images) {
+    const gallery = document.getElementById('imageGallery');
+    gallery.innerHTML = '';
+
+    images.forEach(image => {
+      gallery.innerHTML += `
+        <div class="image-card">
+          <img src="${image.src}" alt="${image.name}" class="w-full">
+          <p class="image-name mt-2">${image.name}</p>
+          <p class="image-price text-gray-600">$${image.price}</p>
+        </div>
+      `;
+    });
+  }
+
+  // Event listener for sorting button (A to Z)
+ // Event listener for sorting buttons
+ document.getElementById('sortAZ').addEventListener('click', () => {
+    const sortedImages = [...extractImageData()].sort((a, b) => b.name.localeCompare(a.name));
+    renderImages(sortedImages);
+  });
+
+  document.getElementById('sortZA').addEventListener('click', () => {
+    const sortedImages = [...extractImageData()].sort((a, b) => a.name.localeCompare(b.name));
+    renderImages(sortedImages);
+  });
+
+  document.getElementById('sortLowToHigh').addEventListener('click', () => {
+    const sortedImages = [...extractImageData()].sort((a, b) => a.price - b.price);
+    renderImages(sortedImages);
+  });
+
+  document.getElementById('sortHighToLow').addEventListener('click', () => {
+    const sortedImages = [...extractImageData()].sort((a, b) => b.price - a.price);
+    renderImages(sortedImages);
+  });
+
+  document.getElementById('sortBestSelling').addEventListener('click', () => {
+    // Implement your best selling sorting logic here
+    // For example, sort by highest sales count
+  });
+
+  document.getElementById('sortFeatured').addEventListener('click', () => {
+    // Implement your featured sorting logic here
+    // For example, sort by featured flag
+  });
+
+  // Initial render
+  renderImages(extractImageData());
+</script>
+
+</body>
+</html>

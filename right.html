@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags and other links -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <button id="openBtnss" class="fixed top-0 right-0 p-4 bg-blue-500 text-white " >Open Nav</button>
+    <div id="sidebarss"
+    class=" md:w-1/3 border border-gray-300  bg-white text-gray-600 fixed bottom-0 w-full  h-[70%] transform translate-y-full transition-transform xl:hidden z-20">
+    <!-- Sidebar content -->
+   
+    <div class="text-sm text-center border-b-2 p-6 border-gray-100">Sort</div>
+    <div class="text-center h-[100%] mt-6 overflow-auto overflow-y-scroll space-y-10 text-sm text-gray-400">
+        <div>Featured</div>
+        <div>Best selling </div>
+        <div>Alphabatically, A-Z</div>
+        <div>Alphabatically, Z-A</div>
+        <div>Price, low to high</div>
+        <div>Price, high to low</div>
+        <div>Date, old to new</div>
+        <div>Date, old to new</div>
+        <div>Date, old to new</div>
+
+    </div>
+    <!-- <button id="navbar-close" class="absolute top-0 left-0 p-4 bg-red-500 text-white hidden">Close Navbar</button> -->
+    <ion-icon name="close-outline" class=" text-2xl absolute top-6 left-6 text-gray-500 " id="closeBtnss">ggjhgkgh</ion-icon>
+    <!-- <div name="close-outline" class=" text-2xl absolute top-0 left-0 text-black hidden" id="closeBtnss">ggjhgkgh</div> -->
+    
+    
+
+</div>
+    <!-- <script src="script.js"></script> -->
+    <script>
+        // script.js
+//         const openNavButton = document.getElementById("nav-opens");
+// const closeNavButton = document.getElementById("nav-closes");
+// const navContainer = document.getElementById("nav-containers");
+
+// openNavButton.addEventListener("click", () => {
+//     navContainer.classList.remove("hidden");
+//     navContainer.classList.remove("translate-x-full");
+//     // openNavButton.classList.add("hidden");
+//     closeNavButton.classList.remove("hidden");
+// });
+
+// closeNavButton.addEventListener("click", () => {
+//     navContainer.classList.add("hidden");
+//     navContainer.classList.add("translate-x-full");
+//     // openNavButton.classList.remove("hidden");
+//     closeNavButton.classList.add("hidden");
+// }); 
+   const sidebarss = document.getElementById('sidebarss');
+        const openBtnss = document.getElementById('openBtnss');
+        const closeBtnss = document.getElementById('closeBtnss');
+
+        openBtnss.addEventListener('click', () => {
+            sidebarss.classList.remove('translate-y-full');
+        });
+
+        closeBtnss.addEventListener('click', () => {
+            sidebarss.classList.add('translate-y-full');
+        });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+            const navexpList = document.querySelectorAll(".navexp");
+            const hide1List = document.querySelectorAll(".hide1");
+
+            navexpList.forEach((navexp, index) => {
+                let isRotated = false;
+
+                navexp.addEventListener("click", () => {
+                    hide1List[index].classList.toggle("hidden");
+                    isRotated = !isRotated;
+
+                    if (isRotated) {
+                        navexp.style.transform = "rotate(45deg)";
+                    } else {
+                        navexp.style.transform = "rotate(0deg)";
+                    }
+                });
+
+                window.addEventListener("click", function (event) {
+                    if (!navexp.contains(event.target) && !hide1List[index].contains(event.target)) {
+                        hide1List[index].classList.add("hidden");
+                        isRotated = false;
+                        navexp.style.transform = "rotate(0deg)";
+                    }
+                });
+            });
+        });
+
+
+    </script>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+
+</body>
+</html>

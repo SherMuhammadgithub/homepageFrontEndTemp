@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Bottom Navbar with Tailwind</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <button id="navbar-open" class="fixed bottom-52 right-0 p-4 bg-blue-500 text-white">Open Navbar</button>
+   
+    <div id="navbar-container" class="fixed bottom-0 left-0 w-full h-[70%] bg-white border-t border-gray-300   hidden transition-transform duration-300 transform translate-y-full">
+        <div class="text-sm text-center border-b-2 p-6 border-gray-100">Sort</div>
+        <div class="text-center h-[100%] mt-6 overflow-auto overflow-y-scroll space-y-10 text-sm text-gray-400">
+            <div>Featured</div>
+            <div>Best selling </div>
+            <div>Alphabatically, A-Z</div>
+            <div>Alphabatically, Z-A</div>
+            <div>Price, low to high</div>
+            <div>Price, high to low</div>
+            <div>Date, old to new</div>
+            <div>Date, old to new</div>
+            <div>Date, old to new</div>
+
+        </div>
+        <!-- <button id="navbar-close" class="absolute top-0-0 left-0 p-4 bg-red-500 text-white hidden">Close Navbar</button> -->
+        <ion-icon name="close-outline" class=" text-2xl absolute top-6 left-6 text-gray-500 hidden" id="navbar-close"></ion-icon>
+        <!-- Navbar content here -->
+     
+    </div>
+    <!-- <script src="script.js"></script> -->
+    <script>
+  // script.js
+const navbarOpen = document.getElementById("navbar-open");
+const navbarClose = document.getElementById("navbar-close");
+const navbarContainer = document.getElementById("navbar-container");
+
+navbarOpen.addEventListener("click", () => {
+    navbarContainer.classList.remove("hidden");
+    navbarContainer.classList.remove("translate-y-full");
+    navbarOpen.classList.add("hidden");
+    navbarClose.classList.remove("hidden");
+});
+
+navbarClose.addEventListener("click", () => {
+    navbarContainer.classList.add("hidden");
+    navbarContainer.classList.add("translate-y-full");
+    navbarOpen.classList.remove("hidden");
+    navbarClose.classList.add("hidden");
+});
+
+
+    </script>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

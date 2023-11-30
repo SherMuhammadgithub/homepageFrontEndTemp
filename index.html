@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            font-family: serif;
+        }
+
+       
+
+        .animate__animated.animate__fadeInUp {
+            --animate-duration: 0.2s;
+        }
+    </style>
+
+</head>
+
+<body class="">
+    <!-- loading spinner  -->
+    <div id="loading-container" class="flex items-center justify-center h-screen">
+        <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-black"></div>
+    </div>
+    <div id="content" class="hidden">
+        <!-- NAVBAR FOR SM SCREENS -->
+        <div class="flex justify-center items-center p-4 bg-white text-black top-0 sticky z-10 xl:hidden "
+            style="border-bottom: 1px solid gray;">
+            <div class="w-[50%]" id="content">
+
+                <ion-icon name="filter-outline" id="openBtn" class="text-black mt-2  text-lg font-bold cursor-pointer
+"></ion-icon>
+            </div>
+            <div class="text-center   font-bold text-black text-lg">
+                <div class="text-lg">
+                    <img src="ready.png" class="w-32 h-auto" alt="">
+                </div>
+            </div>
+            <div class="flex items-center justify-end space-x-2 w-[50%]">
+
+                <ion-icon name="search-outline" class="text-black  text-lg font-bold "></ion-icon>
+                <ion-icon name="lock-closed-outline" class="text-black  text-lg font-bold "></ion-icon>
+                <ion-icon name="cart-outline" id="openBtncs" class="text-black  text-lg font-bold "></ion-icon>
+
+
+            </div>
+
+        </div>
+        <!-- FILTER NAVBAR  -->
+        <div class="flex items-center top-16 lg:hidden sticky  bg-white z-10 border-2 border-gray-200 text-sm ">
+
+            <!-- 1 -->
+            <div class="w-1/4  border-r-2 p-4 border-gray-200 text-center  " id="openBtns">Filter</div>
+
+            <!-- 2 -->
+            <div class="icon w-1/2 border-r-2 p-4 space-x-1 border-gray-200 flex items-cente justify-center"
+                id="openBtnss">
+                <div>Sort</div>
+                <ion-icon name="chevron-down-outline" class="mt-1"></ion-icon>
+            </div>
+
+            <!-- 3 -->
+            <div class=" w-1/4  p-4 flex items-center justify-center space-x-2">
+                <ion-icon name="square" id="toggleButton" class="text-lg"></ion-icon>
+                <ion-icon name="grid" id="resetButton" class="text-lg"> </ion-icon>
+
+            </div>
+
+        </div>
+
+
+        <!-- NAVBAR FOR XL SCREENS  -->
+        <div class="bg-white border-b-2 z-10 xl:block hidden justify-between items-center  border-gray-300 text-black p-5 sticky top-0 "
+            id="wake">
+
+            <div class=" justify-center mt-10 flex items-center text-red-900">
+
+                <img src="ready.png"
+                    class="text-center absolute w-36 h-auto  flex  text-2xl font-bold text-black mb-10   mx-4 "
+                    id="adds" alt="">
+                <div class=" flex text-sm text-gray-400 items-center justify-end space-x-3  ml-auto absolute mb-12 right-10"
+                    id="snake">
+                    <div>Account</div>
+                    <div>Search</div>
+                    <div id="xlOpenBtncs" class="cursor-pointer">Cart(3)</div>
+
+                </div>
+
+            </div>
+            <div class=" justify-center text-sm flex items-center space-x-8  text-gray-400  pt-6  " id="removes">
+                <div class="   group">
+
+                    <button class="pl-6 2xl:pl-0 text-[#5c5c5c] ">BASIC</button>
+                    <ul class="ul text-[#5c5c5c] space-y-2 absolute w-1/5  p-6 mt-5 py-5 hidden  bg-white border border-gray-300  shadow-md"
+                        style="border-top: 2px solid gray;">
+                        <li class=" px-6 text-base  hover:bg-gray-100">SUMMER 23 </li>
+
+                    </ul>
+                </div>
+                <div class="   group">
+
+                    <button class="  text-[#5c5c5c]">NAMAH</button>
+                    <ul class="ul text-[#5c5c5c] space-y-2 absolute w-1/6 text-base  p-6 mt-5 py-5 hidden  bg-white border border-gray-300  shadow-md"
+                        style="border-top: 2px solid gray;">
+                        <li class=" px-6  hover:bg-gray-100">DROP || </li>
+                        <li class=" px-6 hover:bg-gray-100">DROP ONE'22 </li>
+
+                    </ul>
+                </div>
+                <div class="   group">
+
+                    <button class=" text-[#5c5c5c] ">CASUAL PRET</button>
+                    <ul class="ul text-[#5c5c5c] space-y-2 absolute text-base w-1/6  p-6 mt-5 py-5 hidden  bg-white border border-gray-300  shadow-md"
+                        style="border-top: 2px solid gray;">
+                        <li class=" px-6  hover:bg-gray-100">CASUAL PRET'23 </li>
+                        <li class=" px-6 hover:bg-gray-100">FALL'22 </li>
+                        <li class=" px-6 hover:bg-gray-100">S/S'22</li>
+                    </ul>
+                </div>
+                <div class="   group">
+
+                    <button class=" text-[#5c5c5c] ">UNSTISHED LOAN</button>
+                    <ul class="ul absolute text-[#5c5c5c] space-y-2 w-1/6 text-base  p-6 mt-5 py-5 hidden  bg-white border border-gray-300  shadow-md"
+                        style="border-top: 2px solid gray;">
+                        <li class=" px-6  hover:bg-gray-100">FESTIVE </li>
+
+                        <li class=" px-6 hover:bg-gray-100">LAWN'22</li>
+                    </ul>
+                </div>
+                <div class="   group">
+
+                    <button class=" text-[#5c5c5c] ">FREESHIA</button>
+                    <ul class="ul absolute w-1/6  text-[#5c5c5c] space-y-2 p-6 mt-5 py-5 text-base hidden  bg-white border border-gray-300  shadow-md"
+                        style="border-top: 2px solid gray;">
+                        <li class=" px-6  hover:bg-gray-100">WEDDING FESTIVE'22 </li>
+                        <li class=" px-6 hover:bg-gray-100">FREESHIA FESTIVE </li>
+                    </ul>
+                </div>
+                <div class="   group">
+
+                    <button class=" text-[#5c5c5c] ">ABE-E-ZAR</button>
+                    <ul class="ul absolute w-1/6 text-base text-[#5c5c5c] space-y-2  p-6 mt-5 py-5 hidden  bg-white border border-gray-300  shadow-md"
+                        style="border-top: 2px solid gray;">
+                        <li class=" px-6  hover:bg-gray-100"> ABA-E-ZAR'22</li>
+                        <li class=" px-6 hover:bg-gray-100">ABA-E-ZAR'20 </li>
+                        <li class=" px-6 hover:bg-gray-100">ABA-E-ZAR S//'19</li>
+                    </ul>
+                </div>
+                <div class="   group">
+
+                    <button class=" text-[#5c5c5c] ">LUXUARY PRET</button>
+                    <ul class="ul absolute w-1/6 text-base text-[#5c5c5c]  space-y-2  p-6 mt-5 py-5 hidden  bg-white border border-gray-300  shadow-md"
+                        style="border-top: 2px solid gray;">
+                        <li class=" px-6  hover:bg-gray-100">LUXUARY PRET'23 </li>
+                        <li class=" px-6 hover:bg-gray-100">LUXUARY PRET'21 </li>
+                        <li class=" px-6 hover:bg-gray-100">AURA</li>
+                        <li class=" px-6 hover:bg-gray-100">LUXUARY PRET'20</li>
+                    </ul>
+                </div>
+                <div class="   group">
+
+                    <button class=" text-[#5c5c5c] ">LUXE</button>
+                    <ul class="ul absolute w-1/6 text-base text-[#5c5c5c] space-y-2  p-6 mt-5 py-5 hidden  bg-white border border-gray-300  shadow-md"
+                        style="border-top: 2px solid gray;">
+                        <li class=" px-6  hover:bg-gray-100"> IRIS'19 </li>
+                        <li class=" px-6 hover:bg-gray-100">FLORISON </li>
+                        <li class=" px-6 hover:bg-gray-100">AMOUR DETE</li>
+                    </ul>
+                </div>
+                <div class="   group">
+
+                    <button class=" text-[#5c5c5c] ">BRIDAL</button>
+                    <ul class="ul absolute w-1/6 space-y-2 text-base  p-6 mt-5 py-5 hidden text-[#5c5c5c]  bg-white border border-gray-300  shadow-md"
+                        style="border-top: 2px solid gray;">
+                        <li class=" px-6  hover:bg-gray-100">IRIS_Summer Coutre'21 </li>
+                        <li class=" px-6 hover:bg-gray-100">IRIS'19 </li>
+                        <li class=" px-6 hover:bg-gray-100">SIRENE</li>
+                        <li class=" px-6 hover:bg-gray-100">AMOUR DETE</li>
+                    </ul>
+                </div>
+
+
+            </div>
+
+        </div>
+        <!-- FILTER NAVBAR FOR XL SCREENS  -->
+        <div class=" items-center top-28 lg:top-[4rem] xl:top-[7.5rem] hidden lg:flex sticky  bg-white z-[6] border-2 border-gray-200 text-sm "
+            id="make">
+
+            <!-- 1 -->
+            <div class="flex p-4 justify-center items-center w-[10%] space-x-4">
+                <ion-icon name="square" class="cursor-pointer text-xl" id="toggleButtonXL"></ion-icon>
+                <ion-icon name="grid" id="resetButtonXL" class="cursor-pointer text-xl"> </ion-icon>
+            </div>
+
+            <!-- 2 -->
+            <div class="icon w-[85%] border-r-2 p-4 border-l-2 border-gray-200 flex items-cente justify-center"
+                id="openBtnss">
+                <div class="text-2xl font-serif text-[#5c5c5c]">LUXE</div>
+                <!-- <ion-icon name="chevron-down-outline" class="mt-2"></ion-icon> -->
+            </div>
+
+            <!-- -->
+
+            <div class="w-[8%] p-4 text-center">
+                <div id="sortButton" class="cursor-pointer text-sm inline-flex items-center">
+                    <span>Sort</span> <ion-icon name="chevron-down-outline" class="ml-1"></ion-icon>
+                </div>
+
+                <div id="sortDropdown" class="hidden bg-white p-8 rounded-md shadow-2xl space-y-4 absolute top-14 right-24 h-72 overflow-hidden overflow-y-scroll text-gray-400 text-sm z-30 animate__animated animate__fadeInDownBig
+            ">
+                    <!-- Dropdown content here -->
+                    <div class="text-gray-400 hover:text-[#5c5c5c] cursor-pointer">Featured</div>
+                    <div class="text-gray-400 hover:text-[#5c5c5c] cursor-pointer">Best selling </div>
+                    <div class="text-gray-400 hover:text-[#5c5c5c] cursor-pointer">Alphabatically, A-Z</div>
+                    <div class="text-gray-400 hover:text-[#5c5c5c] cursor-pointer">Alphabatically, Z-A</div>
+                    <div class="text-gray-400 hover:text-[#5c5c5c] cursor-pointer">Price, low to high</div>
+                    <div class="text-gray-400 hover:text-[#5c5c5c] cursor-pointer">Price, high to low</div>
+                    <div class="text-gray-400 hover:text-[#5c5c5c] cursor-pointer">Date, old to new</div>
+                    <div class="text-gray-400 hover:text-[#5c5c5c] cursor-pointer">Date, old to new</div>
+                    <div class="text-gray-400 hover:text-[#5c5c5c] cursor-pointer">Date, old to new</div>
+
+                </div>
+            </div>
+            <!-- 3 -->
+            <div class=" w-[8%] border-l-2 border-gray-200 p-[1.4rem]  text-center">
+               
+                <div class="   border-gray-200 cursor-pointer text-sm  " id="xlOpenBtns">Filter</div>
+
+             
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+        <!--SIDE NAVBAR HERE -->
+
+        <div id="sidebar"
+            class="w-[70%] md:w-1/3  overflow-hidden overflow-y-scroll bg-black text-white fixed top-0 h-full transform -translate-x-full transition-transform xl:hidden z-[30]">
+            <!-- Sidebar content -->
+            <button id="closeBtn" class="
+        absolute top-0 left-0 p-2 "><ion-icon class="text-white text-2xl" name="close-outline"></ion-icon></button>
+            <div class="flex items-center mt-14 mb-5  mx-2 ">
+                <h1 class="text-base mx-2 font-serif ">BASICS</h1>
+                <ion-icon
+                    class="cursor-pointer mx-2 text-lg textgar ml-auto navexp transform transition-transform duration-200 "
+                    name="add-outline"></ion-icon>
+
+
+            </div>
+            <div id="" class=" hide1 hidden text-sm text-white mb-8 mt-6 text-center">Summer 23</div>
+            <hr class="border-1 border-gray-100 mx-2 ">
+            <div class="flex items-center mt-6 mb-5  mx-2 ">
+                <h1 class="text-base mx-2 font-serif ">BASICS</h1>
+                <ion-icon
+                    class="cursor-pointer mx-2 text-lg textgar ml-auto navexp transform transition-transform duration-200 "
+                    name="add-outline"></ion-icon>
+
+
+            </div>
+            <div id="" class=" hide1 hidden text-sm text-white mb-8 mt-6 text-center">Summer 23</div>
+            <hr class="border-1 border-gray-100 mx-2 ">
+            <div class="flex items-center mt-6 mb-5  mx-2">
+                <h1 class="text-base mx-2 font-serif ">BASICS</h1>
+                <ion-icon
+                    class="cursor-pointer mx-2 text-lg textgar ml-auto navexp transform transition-transform duration-200 "
+                    name="add-outline"></ion-icon>
+
+
+            </div>
+            <div id="" class=" hide1 hidden text-sm text-white mb-8 mt-6 text-center">Summer 23</div>
+            <hr class="border-1 border-gray-100 mx-2 ">
+            <div class="flex items-center mt-6 mb-5  mx-2 ">
+                <h1 class="text-base mx-2 font-serif ">BASICS</h1>
+                <ion-icon
+                    class="cursor-pointer mx-2 text-lg textgar ml-auto navexp transform transition-transform duration-200 "
+                    name="add-outline"></ion-icon>
+
+
+            </div>
+            <div id="" class=" hide1 hidden text-sm text-white mb-8 mt-6 text-center">Summer 23</div>
+            <hr class="border-1 border-gray-100 mx-2 ">
+            <div class="flex items-center mt-6 mb-5  mx-2 ">
+                <h1 class="text-base mx-2 font-serif ">BASICS</h1>
+                <ion-icon
+                    class="cursor-pointer mx-2 text-lg textgar ml-auto navexp transform transition-transform duration-200 "
+                    name="add-outline"></ion-icon>
+
+
+            </div>
+            <div id="" class=" hide1 hidden text-sm text-white mb-8 mt-6 text-center">Summer 23</div>
+            <hr class="border-1 border-gray-100 mx-2 ">
+            <div class="flex items-center mt-6 mb-5  mx-2">
+                <h1 class="text-base mx-2 font-serif ">BASICS</h1>
+                <ion-icon
+                    class="cursor-pointer mx-2 text-lg textgar ml-auto navexp transform transition-transform duration-200 "
+                    name="add-outline"></ion-icon>
+
+
+            </div>
+            <div id="" class=" hide1 hidden text-sm text-white mb-8 mt-6 text-center">Summer 23</div>
+            <hr class="border-1 border-gray-100 mx-2 ">
+            <div class="flex items-center mt-6 mb-5  mx-2">
+                <h1 class="text-base mx-2 font-serif ">BASICS</h1>
+                <ion-icon
+                    class="cursor-pointer mx-2 text-lg textgar ml-auto navexp transform transition-transform duration-200 "
+                    name="add-outline"></ion-icon>
+
+
+            </div>
+            <div id="" class=" hide1 hidden text-sm text-white mb-8 mt-6 text-center">Summer 23</div>
+            <hr class="border-1 border-gray-100 mx-2 ">
+            <div class="flex items-center mt-6 mb-5  mx-2">
+                <h1 class="text-base mx-2 font-serif ">BASICS</h1>
+                <ion-icon
+                    class="cursor-pointer mx-2 text-lg textgar ml-auto navexp transform transition-transform duration-200 "
+                    name="add-outline"></ion-icon>
+
+
+            </div>
+            <div id="" class=" hide1 hidden text-sm text-white mb-8 mt-6 text-center">Summer 23</div>
+            <hr class="border-1 border-gray-100 mx-2 ">
+            <div class="flex items-center mt-6 mb-5  mx-2">
+                <h1 class="text-base mx-2 font-serif ">BASICS</h1>
+                <ion-icon
+                    class="cursor-pointer mx-2 text-lg textgar ml-auto navexp transform transition-transform duration-200 "
+                    name="add-outline"></ion-icon>
+
+
+            </div>
+            <div id="" class=" hide1 hidden text-sm text-white mb-8 mt-6 text-center">Summer 23</div>
+            <hr class="border-1 border-gray-100 mx-2 ">
+            <div class="flex items-center mt-6 mb-5  mx-2">
+                <h1 class="text-base mx-2 font-serif ">BASICS</h1>
+                <ion-icon
+                    class="cursor-pointer mx-2 text-lg textgar ml-auto navexp transform transition-transform duration-200 "
+                    name="add-outline"></ion-icon>
+
+
+            </div>
+            <div id="" class=" hide1 hidden text-sm text-white mb-8 mt-6 text-center">Summer 23</div>
+            <hr class="border-1 border-gray-100 mx-2 ">
+            <div class="flex items-center mt-6 mb-5  mx-2">
+                <h1 class="text-base mx-2 font-serif ">BASICS</h1>
+                <ion-icon
+                    class="cursor-pointer mx-2 text-lg textgar ml-auto navexp transform transition-transform duration-200 "
+                    name="add-outline"></ion-icon>
+
+
+            </div>
+            <div id="" class=" hide1 hidden text-sm text-white mb-8 mt-6 text-center">Summer 23</div>
+            <hr class="border-1 border-gray-100 mx-2 ">
+
+        </div>
+
+
+        <!-- BOTTOM BAR HERE  -->
+
+
+        <div id="sidebarss"
+            class="  border border-gray-300  bg-white text-gray-600 fixed bottom-0 w-full  h-[70%] transform translate-y-full transition-transform lg:hidden z-[15]">
+            <!-- Sidebar content -->
+
+            <div class="text-sm text-center border-b-2 p-6 border-gray-100">Sort</div>
+            <div class="text-center h-[70%] my-6 overflow-y-auto    space-y-10 text-sm text-gray-400">
+                <div class="text-gray-400 hover:text-[#5c5c5c]">Featured</div>
+                <div class="text-gray-400 hover:text-[#5c5c5c]">Best selling </div>
+                <div class="text-gray-400 hover:text-[#5c5c5c]">Alphabatically, A-Z</div>
+                <div class="text-gray-400 hover:text-[#5c5c5c]">Alphabatically, Z-A</div>
+                <div class="text-gray-400 hover:text-[#5c5c5c]">Price, low to high</div>
+                <div class="text-gray-400 hover:text-[#5c5c5c]">Price, high to low</div>
+                <div class="text-gray-400 hover:text-[#5c5c5c]">Date, old to new</div>
+                <div class="text-gray-400 hover:text-[#5c5c5c]">Date, old to new</div>
+                <div class="text-gray-400 hover:text-[#5c5c5c]">Date, old to new</div>
+
+            </div>
+            <!-- <button id="navbar-close" class="absolute top-0 left-0 p-4 bg-red-500 text-white hidden">Close Navbar</button> -->
+            <ion-icon name="close-outline" class=" text-2xl absolute top-6 left-6 text-gray-500 "
+                id="closeBtnss">ggjhgkgh</ion-icon>
+            <!-- <div name="close-outline" class=" text-2xl absolute top-0 left-0 text-black hidden" id="closeBtnss">ggjhgkgh</div> -->
+
+
+
+        </div>
+
+
+        <!-- RIGHT SIDE NAVBAR HERE -->
+
+        <div id="sidebars"
+            class="w-[70%] md:w-1/3 border-l border-gray-300  overflow-hidden z-[20] overflow-y-scroll bg-white text-gray-600 fixed top-0 right-0 h-full transform translate-x-full transition-transform  ">
+            <!-- Sidebar content -->
+
+            <div class="text-center overflow-auto overflow-y-scroll space-y-4  ">
+                <!-- <button id="nav-close" class="absolute top-0 left-0 p-4 bg-red-500 text-white hidden">Close Nav</button> -->
+                <ion-icon name="close-outline" id="closeBtns"
+                    class="absolute lg:hidden   right-2 text-2xl p-4  text-gray-500  "></ion-icon>
+                <ion-icon name="close-outline" id="xlCloseBtns"
+                    class="absolute hidden lg:block    right-8 text-2xl top-1  text-gray-500  "></ion-icon>
+                <!-- xlCloseBtns -->
+                <div style="visibility: hidden;">sher</div>
+                <hr class="border mt-7  border-gray-100">
+                <!-- <hr class="border mt-16 border-gray-100"> -->
+                <div class="flex items-center mt-14 mb-5  mx-2 ">
+                    <h1 class="text-base mx-2 font-serif ">Freesia</h1>
+                    <ion-icon
+                        class="cursor-pointer mx-2 text-lg textgar lg:hidden ml-auto navexp transform transition-transform duration-200 "
+                        name="add-outline"></ion-icon>
+
+
+                </div>
+                <div class="hidden lg:block text-left mx-4 space-y-4 pt-6 ">
+                    <p>Unstitshed</p>
+                    <p>stitshed</p>
+                </div>
+                <div id="" class=" hide1 hidden text-sm text-gray-400 mb-8 lg:hidden text-left mx-4 space-y-4 pt-6">
+                    <p>Unstitshed</p>
+                    <p>stitshed</p>
+                </div>
+                <hr class="border-1 border-gray-100 mx-2 ">
+                <div class="flex items-center mt-6 mb-5  mx-2 ">
+                    <h1 class="text-base mx-2 font-serif ">Filters</h1>
+
+                    <ion-icon
+                        class="cursor-pointer mx-2 text-lg textgar lg:hidden ml-auto navexp transform transition-transform duration-200 "
+                        name="add-outline"></ion-icon>
+
+                </div>
+                <div id="" class="   hidden lg:block text-left mx-4 space-y-4 pt-6">
+                    <p>ABEZAR20</p>
+                    <p>ABEZARSUMMER19</p>
+                </div>
+                <div id="" class=" hide1 hidden lg:hidden text-sm text-gray-400 mb-8 0 text-left mx-4 pt-6">Pants</div>
+                <hr class="border-1 border-gray-100 mx-2s ">
+
+
+
+                <div class="text-center pt-20  space-y-9">
+                    <hr class="border-gray-100 border ">
+                    <div class="mx-8">
+                        <button
+                            class=" bg-[#5c5c5c] w-full  p-4 px-8 xl:px-32 text-white text-sm border border-[#5c5c5c] hover:bg-white hover:text-[#5c5c5c] "
+                            style="letter-spacing: 4px;">APPLY </button>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <!-- IMAGES GRID NO. 1 -->
+        <div class="grid  grid-cols-2 lg:grid-cols-4 gap-3 gap-y-8  mx-3 md:mx-20 md:gap-6 xl:mx-12 2xl:gap-5 my-9 place-items-center "
+            id="gridContainer">
+            <div class="" data-aos="zoom-in">
+                <img src="https://suffuse.pk/cdn/shop/files/IMG_0916_400x.png?v=1685523413"
+                    class="transform hover:scale-105 transition duration-300" alt="">
+                <div class="space-y-2 mt-5">
+                    <h1 class="text-center text-sm ">LUNA</h1>
+                    <h1 class="text-center text-sm text-gray-400">164,091,18</h1>
+                </div>
+
+            </div>
+
+            <!-- img 2 -->
+            <div data-aos="zoom-in">
+                <img src="https://suffuse.pk/cdn/shop/files/IMG_1506_400x.png?v=1685523040"
+                    class="transform hover:scale-105 transition duration-300" alt="">
+                <div class="space-y-2 mt-5">
+                    <h1 class="text-center text-sm ">LUNA</h1>
+                    <h1 class="text-center text-sm text-gray-400">164,091,18</h1>
+                </div>
+
+            </div>
+            <!-- img 3 -->
+            <div data-aos="zoom-in">
+                <img src="https://suffuse.pk/cdn/shop/files/IMG_0670_400x.png?v=1685520420"
+                    class="transform hover:scale-105 transition duration-300" alt="">
+                <div class="space-y-2 mt-5">
+                    <h1 class="text-center text-sm ">LUNA</h1>
+                    <h1 class="text-center text-sm text-gray-400">164,091,18</h1>
+                </div>
+
+            </div>
+            <!-- img 4 -->
+            <div data-aos="zoom-in">
+                <img src="https://suffuse.pk/cdn/shop/files/IMG_1506_400x.png?v=1685523040"
+                    class="transform hover:scale-105 transition duration-300" alt="">
+                <div class="space-y-2 mt-5">
+                    <h1 class="text-center text-sm ">LUNA</h1>
+                    <h1 class="text-center text-sm text-gray-400">164,091,18</h1>
+                </div>
+
+            </div>
+            <!-- img 5 -->
+            <div data-aos="zoom-in">
+                <img src="https://suffuse.pk/cdn/shop/files/IMG_0159_400x.png?v=1685520348"
+                    class="transform hover:scale-105 transition duration-300" alt="">
+                <div class="space-y-2 mt-5">
+                    <h1 class="text-center text-sm ">LUNA</h1>
+                    <h1 class="text-center text-sm text-gray-400">164,091,18</h1>
+                </div>
+
+            </div>
+            <!-- img 6 -->
+            <div data-aos="zoom-in">
+                <img src="https://suffuse.pk/cdn/shop/files/IMG_1506_400x.png?v=1685523040"
+                    class="transform hover:scale-105 transition duration-300" alt="">
+                <div class="space-y-2 mt-5">
+                    <h1 class="text-center text-sm ">LUNA</h1>
+                    <h1 class="text-center text-sm text-gray-400">164,091,18</h1>
+                </div>
+
+            </div>
+            <!-- img 7 -->
+            <div data-aos="zoom-in">
+                <img src="https://suffuse.pk/cdn/shop/files/IMG_0524_400x.png?v=1685522096"
+                    class="transform hover:scale-105 transition duration-300" alt="">
+                <div class="space-y-2 mt-5">
+                    <h1 class="text-center text-sm ">LUNA</h1>
+                    <h1 class="text-center text-sm text-gray-400">164,091,18</h1>
+                </div>
+
+            </div>
+            <!-- img 8 -->
+            <div data-aos="zoom-in">
+                <img src="https://suffuse.pk/cdn/shop/files/IMG_1127_400x.png?v=1685521335"
+                    class="transform hover:scale-105 transition duration-300" alt="">
+                <div class="space-y-2 mt-5">
+                    <h1 class="text-center text-sm ">LUNA</h1>
+                    <h1 class="text-center text-sm text-gray-400">164,091,18</h1>
+                </div>
+
+            </div>
+            <!-- img 9 -->
+            <div data-aos="zoom-in">
+                <img src="https://suffuse.pk/cdn/shop/files/IMG_0812_400x.png?v=1685520910"
+                    class="transform hover:scale-105 transition duration-300" alt="">
+                <div class="space-y-2 mt-5">
+                    <h1 class="text-center text-sm ">LUNA</h1>
+                    <h1 class="text-center text-sm text-gray-400">164,091,18</h1>
+                </div>
+
+            </div>
+            <!-- img 10 -->
+            <div data-aos="zoom-in">
+                <img src="https://suffuse.pk/cdn/shop/files/IMG_1234_c55f9ab5-7ee5-4233-bf4b-44c3e11fca8c_400x.png?v=1685520613"
+                    class="transform hover:scale-105 transition duration-300" alt="">
+                <div class="space-y-2 mt-5">
+                    <h1 class="text-center text-sm ">LUNA</h1>
+                    <h1 class="text-center text-sm text-gray-400">164,091,18</h1>
+                </div>
+
+            </div>
+            <!-- img 11 -->
+            <div data-aos="zoom-in">
+                <img src="https://suffuse.pk/cdn/shop/files/IMG_1506_400x.png?v=1685523040"
+                    class="transform hover:scale-105 transition duration-300" alt="">
+                <div class="space-y-2 mt-5">
+                    <h1 class="text-center text-sm ">LUNA</h1>
+                    <h1 class="text-center text-sm text-gray-400">164,091,18</h1>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    
+
+
+
+
+
+
+        <!-- PAKISTAN FIXED SECTION (CURRENCY SECTION)  -->
+
+        <div class="fixed z-[10] top-[88%] right-[2%] inline-block text-left">
+            <div class="bg-[#f5f5f5] shadow-xl   border border-gray-300 text-gray-700 py-3 px-4  rounded leading-tight cursor-pointer"
+                id="dropdown-toggle" onclick="toggleDropdown()">
+                <img id="selected-item-image" class="h-6 w-6 mr-2 inline"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFwAAABcCAMAAADUMSJqAAAAkFBMVEUBQRz///8APxkAPhYAOxEANQD5+/oAMwAAOg4AQhoAPxTQ29Xg6eQAMQDj6+doiXVCZk5lgm90kX/w9PFSemIjVzeSppnJ1M2Im48XTy2yw7lXdWGHnpAwVzxAblMKRyOJp5WovbG/zcU4Z0ucsaWzvbYALAAsYUKjsKdbgWp3jX6An4xNcVoAPAkASSE4W0OU2LnTAAAC/klEQVRoge1Y25aiMBA0V4JhCBLRgUHFEXVwRv3/v1vuzroEDcLDnkO9Qiqd6up0kslkxIgRI0aM+D+ABmOGhrneDEONjEsUeYNQQ+xHMvAHkQX7wgbDcEPmbAH49PAQ3NMZB8ByWONXBF/iNl0bACBI40d/57/ADpErU+5tI/dkcolFtaIOk7A5TbmBKplkT3O9IDsctdnZLqMGUbPgKfkXkB5DaJPYiW7CkZ/pDeRV5UISSmB5V9cCn7q6wHOQBx5vVANZlhFupfM7uoETkQsOZqqByBAy/wMslPOrhno8H8idZlUQ8UJOy1+0A18UI7fNXjaOgVX8kP4y1Q58WS650StmXCqSp1yo/KQK/L2IS56aB8LJ+ntZhU4TLXboF1YB1odCT4jJ4ZCtTkoK6IcOO/6wCnL+05Kstz0A9jyJl9zaaWzJ01O5YpVZcpCYgu83RogvlIb9F3ATV+RtIZGQ8nPmFMg0zIhWpVfAso2cuWCuaZSM3LGfkYW5W93anGT5rDysdEsew7pLt8CzukBmbevu1Oemoi6/d0Ub6g7k1uSxOSD556rvE8svWWRbRjvhllAAwr51uVkxdXrfutyKKIXoWZdb+Weh6zaaB7htXBncnq3OTr/Iba9f1etmkSM49ypM3eZy0EW/wlQNuqwklzyOHT59I6uPFhX7ww0Qef6z5PWhqErqqf0iCpEjVk9npjrO1bEvLi3FBNksUJxwmkMXf4WeemZtKM+704UV6HQ8yLZ/kwMeXhrzisnPklo7rV0CXew7dsrdM7mTHjJjF0hA55o7ENvdCZNJHx0JwxgVwJiZIs/Nt3YllBeuO9hb98e5rlbXq5NEpWHjgy53dVVsgrSs2yca4A77Q3nJfQAad3sZKK7n7bDDrq8OxcNCG3jywiNS/iSiRrTqovct+OwxR0EdHNGrjQQZpsvlvS2pHXtGHz0KErKOuWUXM1ApbR4IsxfqHJicj0kYf+33+69QrM9vrN9DAcKEGCkIYa89Eo0YMWLEiBEV/gC+kygz4QIY+AAAAABJRU5ErkJggg==">
+                <!-- <img src="download.png" alt=""> -->
+                <!-- div -->
+                <span id="selected-item" class="text-sm text-gray-500 inline-flex"> PKR (ruppees)</span>
+                ▼
+            </div>
+            <ul class="absolute z-[-1] bottom-[105%] w-full p-1   text-sm text-gray-500  bg-white border border-gray-300 rounded-md shadow-md  hidden  animate__animated animate__fadeInUp"
+                id="dropdown-list">
+                <!-- The list items will be dynamically generated here -->
+            </ul>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- FOOTER SECTION FOR SMALL SCREENS -->
+        <!-- stor section  -->
+        <hr class="border border-gray-200 mt-10 md:hidden">
+        <div class="flex items-center text-sm text-gray-400 mx-5 mt-5  md:hidden">
+            <div class="text-gray-500">
+                STORE
+            </div>
+            <!-- for cross buttton  -->
+            <ion-icon class="cursor-pointer text-lg textgar ml-auto navexp transform transition-transform duration-200 "
+                name="add-outline"></ion-icon>
+        </div>
+
+        <div class="para">
+            <div id="" class="hidden mt-2 text-left mx-6  xl:hidden text-gray-600 hide1">
+                <h1 class="text-gray-400 italic text-sm mt-4 ">5-R, GULBERG-2 M M ALAM ROAD Lahore</h1>
+                <h2 class="mt-7 text-gray-400  text-sm ">For Online Orders Queries: +92 346 111 39626 For Booking an
+                    Appointment: +92 345 849 6756
+                </h2>
+                <h3 class="my-7 text-gray-400 text-sm  ">
+                    Store Hours
+                </h3>
+                <h4 class="text-sm text-gray-400">MONDAY - SATURDAY :</h4>
+                <h4 class="text-sm text-gray-400 my-7">11:00 am - 07:00 pm</h4>
+
+            </div>
+
+        </div>
+
+
+        <hr class="mx-5  border border-gray-200 mt-3 md:hidden">
+        <div class="flex items-center text-sm text-gray-400 mx-5 mt-5 md:hidden ">
+            <div class="text-gray-500">
+                ABOUT SUFFUSE
+            </div>
+            <!-- for cross buttton  -->
+            <ion-icon class="cursor-pointer text-lg textgar ml-auto navexp transform transition-transform duration-200 "
+                name="add-outline"></ion-icon>
+        </div>
+        <div class="para">
+            <div id="" class="hidden mt-2 text-left text-gray-600 md:hidden mx-6 hide1">
+                <p class="mb-6 mt-3 text-sm text-gray-400 " style="line-height: 25px;">Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Sed provident eius magnam non consequatur consequuntur hic!
+                    Voluptate officia quaerat fugit!</p>
+
+            </div>
+
+        </div>
+        <hr class="mx-5 border border-gray-200 mt-3 md:hidden">
+        <div class="flex items-center text-sm text-gray-400 mx-5 mt-5 md:hidden">
+            <div class="text-gray-500">
+                CUSTOMER SERVICES
+            </div>
+            <!-- for cross buttton  -->
+            <ion-icon class="cursor-pointer text-lg textgar ml-auto navexp transform transition-transform duration-200 "
+                name="add-outline"></ion-icon>
+
+        </div>
+        <div class="para">
+            <div id="" class="hidden mt-2 mx-14  text-left text-sm xl:hidden text-gray-400 hide1">
+                <div class="space-y-5">
+                    <h1>Contact us</h1>
+                    <h1>About us </h1>
+                    <h1> exchange & Refunds</h1>
+                </div>
+
+            </div>
+
+        </div>
+        <hr class="mx-5  border border-gray-300 mt-3 md:hidden">
+
+        <!-- FOOTER SECTION FOR LARGE SCREENS   -->
+        <hr class="border-1 border-gray-200 w-full mt-10 hidden md:block">
+
+        <div class=" justify-evenly items-center hidden md:block">
+            <div class="grid grid-cols-3 md:grid-cols-2 xl:grid-cols-3 mt-6 gap-2 justify-center mx-16 ">
+                <div class=" p-4 text-left  ">
+                    <div class="text-gray-500">
+                        <h1 class="  underline">STORE</h1>
+                        <div class="para">
+                            <div id="desk1" class=" mt-3 text-left   text-gray-600" style="letter-spacing: 1px;">
+                                <h1 class="text-gray-400 italic text-sm md:text-base  "> 5-R, GULBERG-2 M M ALAM ROAD
+                                    Lahore
+                                </h1>
+                                <h2 class=" text-gray-400  text-sm ">For Online Orders Queries: +92 346 111 39626 For
+                                    Booking an
+                                    Appointment: +92 345 849 6756
+                                </h2>
+                                <h3 class="my-5 text-gray-400 text-sm  ">
+                                    Store Hours
+                                </h3>
+                                <h4 class="text-sm text-gray-400 md:text-base">MONDAY - SATURDAY :</h4>
+                                <h4 class="text-sm text-gray-400 md:text-base my-5">11:00 am - 07:00 pm</h4>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class=" p-4 text-right">
+                    <div class="text-gray-500">
+                        <h1 class="underline ">ABOUT SUFFUSE</h1>
+                        <div class="para">
+                            <div id="desk2" class="   mt-2 text-right text-gray-600  ">
+                                <p class="mb-6 mt-3 text-sm text-gray-400 md:text-base "
+                                    style="line-height: 25px; letter-spacing: 0.2px; ">Lorem ipsum dolor sit
+                                    amet consectetur adipisicing elit. Sed provident eius magnam non consequatur
+                                    consequuntur
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
+                                </p>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class=" p-4  xl:text-right md:text-left">
+                    <div class="text-gray-500">
+                        <h1 class=" underline">CUSTOMER SERVICE </h1>
+
+
+
+                        <div class="para">
+                            <div id="desk3" class=" xl:text-right md:text-left text-sm md:text-base  text-gray-400">
+                                <div class="space-y-2" style="letter-spacing: 1px;">
+                                    <h1>Contact us</h1>
+                                    <h1>About us </h1>
+                                    <h1> exchange & Refunds</h1>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=" items-baseline hidden md:flex">
+
+            <h1 class=" w-1/5  text-gray-400 text-sm " style="margin-left: 88px;">&copy;Suffuse </h1>
+
+
+            <h1 class="text-center w-1/2 text-base font-medium text-gray-400 mt-6 mb-2   ">GET TO KNOW US</h1>
+
+        </div>
+
+        <h1 class="text-center text-base font-medium text-gray-400 mt-6 mb-2 md:hidden   ">GET TO KNOW US</h1>
+        <div class=" flex md:hidden justify-center items-center space-x-5 p-4 ">
+            <ion-icon name="logo-facebook" class="text-black text-2xl md:text-3xl  font-bold "></ion-icon>
+            <ion-icon name="call-outline" class="text-black text-2xl md:text-3xl font-bold "></ion-icon>
+            <ion-icon name="logo-instagram" class="text-black text-2xl md:text-3xl font-bold "></ion-icon>
+            <ion-icon name="mail-outline" class="text-black text-2xl md:text-3xl font-bold "></ion-icon>
+            <ion-icon name="logo-whatsapp" class="text-black text-2xl md:text-3xl font-bold "></ion-icon>
+            <!-- grid div ends here  -->
+
+            <!-- sixe -->
+        </div>
+
+
+        <div class="hidden md:flex items-stretch ">
+            <h1 class=" text-gray-300  w-1/5 text-lg" style="margin-left: 88px;">Powered by Sher </h1>
+
+            <div class="flex justify-center items-center space-x-5 w-1/2 pb-6 pt-2 ">
+                <ion-icon name="logo-facebook" class="text-black text-2xl  font-bold "></ion-icon>
+                <ion-icon name="call-outline" class="text-black text-2xl font-bold "></ion-icon>
+                <ion-icon name="logo-instagram" class="text-black text-2xl font-bold "></ion-icon>
+                <ion-icon name="mail-outline" class="text-black text-2xl font-bold "></ion-icon>
+                <ion-icon name="logo-whatsapp" class="text-black text-2xl font-bold "></ion-icon>
+                <!-- grid div ends here  -->
+
+                <!-- sixe -->
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+
+        // FOR GRID TOGGLE OPTIONS 
+        const toggleButton = document.getElementById('toggleButton');
+        const resetButton = document.getElementById('resetButton');
+        const toggleButtonXL = document.getElementById('toggleButtonXL'); // New button for XL screens
+        const resetButtonXL = document.getElementById('resetButtonXL'); // New button for XL screens
+        const gridContainer = document.getElementById('gridContainer');
+
+        // Initially, set the active button
+        toggleButton.classList.add('text-gray-400'); // Toggle button is initially active
+        toggleButtonXL.classList.add('text-gray-400'); // Toggle button is initially active
+
+        // Add click event listener to the toggle button
+        toggleButton.addEventListener('click', () => {
+            gridContainer.classList.remove('grid-cols-2');
+            gridContainer.classList.add('grid-cols-1');
+
+            resetButton.classList.add('text-gray-400');
+            toggleButton.classList.remove('text-gray-400');
+
+            // Make sure XL toggle buttons match the current layout
+            resetButtonXL.classList.remove('text-gray-400');
+            toggleButtonXL.classList.add('text-gray-400');
+        });
+
+        // Add click event listener to the reset button
+        resetButton.addEventListener('click', () => {
+            gridContainer.classList.remove('grid-cols-1');
+            gridContainer.classList.add('grid-cols-2');
+
+            resetButton.classList.remove('text-gray-400');
+            toggleButton.classList.add('text-gray-400');
+
+            // Make sure XL toggle buttons match the current layout
+            resetButtonXL.classList.remove('text-gray-400');
+            toggleButtonXL.classList.add('text-gray-400');
+        });
+
+        // Add click event listener to the XL toggle button
+        toggleButtonXL.addEventListener('click', () => {
+            gridContainer.classList.remove('xl:grid-cols-4');
+            gridContainer.classList.remove('xl:mx-12');
+            gridContainer.classList.add('xl:grid-cols-3');
+            gridContainer.classList.add('xl:mx-32');
+
+            resetButtonXL.classList.add('text-gray-400');
+            toggleButtonXL.classList.remove('text-gray-400');
+
+            // Make sure regular toggle buttons match the current layout
+            resetButton.classList.remove('text-gray-400');
+            toggleButton.classList.add('text-gray-400');
+        });
+
+        // Add click event listener to the XL reset button
+        resetButtonXL.addEventListener('click', () => {
+            gridContainer.classList.remove('xl:grid-cols-3');
+            gridContainer.classList.remove('xl:mx-32');
+            gridContainer.classList.add('xl:grid-cols-4');
+            gridContainer.classList.add('xl:mx-12');
+
+            resetButtonXL.classList.remove('text-gray-400');
+            toggleButtonXL.classList.add('text-gray-400');
+
+            // Make sure regular toggle buttons match the current layout
+            resetButton.classList.remove('text-gray-400');
+            toggleButton.classList.add('text-gray-400');
+        });
+
+
+       
+
+    
+
+        // expanding all the sections + rotating upto 45 degree 
+        document.addEventListener("DOMContentLoaded", function () {
+            const navexpList = document.querySelectorAll(".navexp");
+            const hide1List = document.querySelectorAll(".hide1");
+
+            navexpList.forEach((navexp, index) => {
+                let isRotated = false;
+
+                navexp.addEventListener("click", () => {
+                    hide1List[index].classList.toggle("hidden");
+                    isRotated = !isRotated;
+
+                    if (isRotated) {
+                        navexp.style.transform = "rotate(45deg)";
+                    } else {
+                        navexp.style.transform = "rotate(0deg)";
+                    }
+                });
+
+                window.addEventListener("click", function (event) {
+                    if (!navexp.contains(event.target) && !hide1List[index].contains(event.target)) {
+                        hide1List[index].classList.add("hidden");
+                        isRotated = false;
+                        navexp.style.transform = "rotate(0deg)";
+                    }
+                });
+            });
+        });
+
+
+
+
+
+        // for side NAVBAR bar 
+
+        const sidebar = document.getElementById('sidebar');
+        const openBtn = document.getElementById('openBtn');
+        const closeBtn = document.getElementById('closeBtn');
+
+        openBtn.addEventListener('click', () => {
+            sidebar.classList.remove('-translate-x-full');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+        });
+
+
+        // xl nav drop downs 
+
+        const dropdownGroups = document.querySelectorAll('.group');
+
+        dropdownGroups.forEach(dropdownGroup => {
+            const dropdownMenu = dropdownGroup.querySelector('.ul');
+            let timer;
+
+            dropdownGroup.addEventListener('mouseenter', () => {
+                clearTimeout(timer);
+                dropdownMenu.classList.remove('hidden');
+            });
+
+            dropdownGroup.addEventListener('mouseleave', () => {
+                timer = setTimeout(() => {
+                    dropdownMenu.classList.add('hidden');
+                }, 100);
+            });
+
+            dropdownMenu.addEventListener('mouseenter', () => {
+                clearTimeout(timer);
+            });
+
+            dropdownMenu.addEventListener('click', () => {
+                dropdownMenu.classList.add('hidden');
+            });
+        });
+
+        // FUCTION FOR BOTTOM BAR 
+
+
+        const sidebarss = document.getElementById('sidebarss');
+        const openBtnss = document.getElementById('openBtnss');
+        const closeBtnss = document.getElementById('closeBtnss');
+
+        openBtnss.addEventListener('click', () => {
+            sidebarss.classList.remove('translate-y-full');
+        });
+
+        closeBtnss.addEventListener('click', () => {
+            sidebarss.classList.add('translate-y-full');
+        });
+
+        // FOR RIGHT SIDE NAVBAR 
+
+        const sidebars = document.getElementById('sidebars');
+        const openBtns = document.getElementById('openBtns');
+        const closeBtns = document.getElementById('closeBtns');
+        const xlOpenBtns = document.getElementById('xlOpenBtns'); // Replace with actual xl open button ID
+        const xlCloseBtns = document.getElementById('xlCloseBtns'); // Replace with actual xl close button ID
+
+        // Common functionality for both small and xl screens
+        const openSidebar = () => {
+            sidebars.classList.remove('translate-x-full');
+        };
+
+        const closeSidebar = () => {
+            sidebars.classList.add('translate-x-full');
+        };
+
+        // Add event listeners for small screens
+        openBtns.addEventListener('click', openSidebar);
+        closeBtns.addEventListener('click', closeSidebar);
+
+        // Add event listeners for xl screens
+        xlOpenBtns.addEventListener('click', openSidebar);
+        xlCloseBtns.addEventListener('click', closeSidebar);
+
+
+        // for XL SCREEN SORT BUTTON 
+
+        const sortButton = document.getElementById('sortButton');
+        const sortDropdown = document.getElementById('sortDropdown');
+
+        sortButton.addEventListener('click', () => {
+            sortDropdown.classList.toggle('hidden');
+        });
+
+        // FOR CURRENCY SECTION 
+
+        const items = [
+            { label: 'PKR (ruppees)', image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFwAAABcCAMAAADUMSJqAAAAkFBMVEUBQRz///8APxkAPhYAOxEANQD5+/oAMwAAOg4AQhoAPxTQ29Xg6eQAMQDj6+doiXVCZk5lgm90kX/w9PFSemIjVzeSppnJ1M2Im48XTy2yw7lXdWGHnpAwVzxAblMKRyOJp5WovbG/zcU4Z0ucsaWzvbYALAAsYUKjsKdbgWp3jX6An4xNcVoAPAkASSE4W0OU2LnTAAAC/klEQVRoge1Y25aiMBA0V4JhCBLRgUHFEXVwRv3/v1vuzroEDcLDnkO9Qiqd6up0kslkxIgRI0aM+D+ABmOGhrneDEONjEsUeYNQQ+xHMvAHkQX7wgbDcEPmbAH49PAQ3NMZB8ByWONXBF/iNl0bACBI40d/57/ADpErU+5tI/dkcolFtaIOk7A5TbmBKplkT3O9IDsctdnZLqMGUbPgKfkXkB5DaJPYiW7CkZ/pDeRV5UISSmB5V9cCn7q6wHOQBx5vVANZlhFupfM7uoETkQsOZqqByBAy/wMslPOrhno8H8idZlUQ8UJOy1+0A18UI7fNXjaOgVX8kP4y1Q58WS650StmXCqSp1yo/KQK/L2IS56aB8LJ+ntZhU4TLXboF1YB1odCT4jJ4ZCtTkoK6IcOO/6wCnL+05Kstz0A9jyJl9zaaWzJ01O5YpVZcpCYgu83RogvlIb9F3ATV+RtIZGQ8nPmFMg0zIhWpVfAso2cuWCuaZSM3LGfkYW5W93anGT5rDysdEsew7pLt8CzukBmbevu1Oemoi6/d0Ub6g7k1uSxOSD556rvE8svWWRbRjvhllAAwr51uVkxdXrfutyKKIXoWZdb+Weh6zaaB7htXBncnq3OTr/Iba9f1etmkSM49ypM3eZy0EW/wlQNuqwklzyOHT59I6uPFhX7ww0Qef6z5PWhqErqqf0iCpEjVk9npjrO1bEvLi3FBNksUJxwmkMXf4WeemZtKM+704UV6HQ8yLZ/kwMeXhrzisnPklo7rV0CXew7dsrdM7mTHjJjF0hA55o7ENvdCZNJHx0JwxgVwJiZIs/Nt3YllBeuO9hb98e5rlbXq5NEpWHjgy53dVVsgrSs2yca4A77Q3nJfQAad3sZKK7n7bDDrq8OxcNCG3jywiNS/iSiRrTqovct+OwxR0EdHNGrjQQZpsvlvS2pHXtGHz0KErKOuWUXM1ApbR4IsxfqHJicj0kYf+33+69QrM9vrN9DAcKEGCkIYa89Eo0YMWLEiBEV/gC+kygz4QIY+AAAAABJRU5ErkJggg==' },
+            { label: 'USD (dollars)', image: 'data:image/png;base64,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' },
+
+        ]; // List of items with labels and images
+        let selectedItem = items[0]; // Default selected item
+
+        function generateDropdownList() {
+            const dropdownList = document.getElementById('dropdown-list');
+            dropdownList.innerHTML = ''; // Clear the list
+
+            items.forEach(item => {
+                if (item !== selectedItem) {
+                    const listItem = document.createElement('li');
+                    listItem.classList.add('flex', 'items-center', 'py-2', 'px-4', 'hover:bg-gray-100', 'cursor-pointer');
+
+                    const itemImage = document.createElement('img');
+                    itemImage.src = item.image;
+                    itemImage.classList.add('h-6', 'w-6', 'mr-2');
+                    listItem.appendChild(itemImage);
+
+                    const itemLabel = document.createElement('span');
+                    itemLabel.textContent = item.label;
+                    listItem.appendChild(itemLabel);
+
+                    listItem.onclick = () => selectOption(item);
+                    dropdownList.appendChild(listItem);
+                }
+            });
+        }
+
+        function toggleDropdown() {
+            const dropdownList = document.getElementById('dropdown-list');
+            dropdownList.classList.toggle('hidden');
+        }
+
+        function selectOption(item) {
+            const selectedItemElement = document.getElementById('selected-item');
+            selectedItemElement.textContent = item.label;
+
+            const selectedItemImageElement = document.getElementById('selected-item-image');
+            selectedItemImageElement.src = item.image;
+
+            selectedItem = item;
+            generateDropdownList();
+            toggleDropdown();
+        }
+
+        generateDropdownList(); // Generate the initial list
+
+        // for loading spinner 
+        document.addEventListener("DOMContentLoaded", function () {
+            // Hide the loading spinner and show the content
+            document.getElementById("loading-container").style.display = "none";
+            document.getElementById("content").style.display = "block";
+        });
+
+
+
+
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- FOR IONIC ICONS  -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- FOR ANIMATION IMAGES  -->
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
